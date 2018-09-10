@@ -50,6 +50,10 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Maps
             builder
             .Property(x => x.respostaPadrao)
             .HasColumnType("varchar(500)");
+
+            builder
+            .Property(x => x.complemento)
+            .HasColumnType("varchar(50)");
         }
     }
 }

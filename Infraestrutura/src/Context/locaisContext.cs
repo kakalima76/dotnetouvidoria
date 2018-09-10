@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Rio.SMF.CCU.Ouvidoria.Dominio.Models;
+using Rio.SMF.CCU.Ouvidoria.Infraestrutura.Maps;
 
 namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context
 {

@@ -53,15 +53,11 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddRazorPagesOptions(options =>
             {
             options.RootDirectory = "/Pages";
-            options.Conventions.AddPageRoute("/Resposta", "resposta/{handler?}/{id?}");
-            options.Conventions.AddPageRoute("/Formulario", "formulario/{handler?}/{id?}");
+            options.Conventions.AddPageRoute("/Formulario", "Formulario/{handler?}/{id?}");
             });
 
-           services.AddMvc().AddRazorOptions(options =>
-                {
-                    options.PageViewLocationFormats.Add("/Pages/Formulario/Shared/{0}.cshtml");
-                });
-             }
+          
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

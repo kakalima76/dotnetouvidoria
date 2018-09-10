@@ -36,10 +36,6 @@ body {
     }
 }
 
-.corVermelha{
-    background-color: red;
-}
-
-.corAzul{
-    background-color: blue;
+.formulario {
+    margin-top: 3%;
 }

@@ -20,11 +20,14 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
         public Bairro Bairro { get; set; }
 
         public Itens Itens { get; set; }
+
         public IList<Itens> ListaTipos{ get; set; }
 
         public IList<Bairro> ListaBairro{ get; set; }
 
-        public IList<Logradouro> ListaLogradouro { get; set; }
+        public Categoria Categoria { get; set; }
+
+        public IList<Categoria> ListaCategoria { get; set; }
               
         private readonly IBairroRepository _dbBairro;
         private readonly ILogradouroRepository _dbLogradouro;
@@ -41,13 +44,14 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
         {
         }
 
-        public void OnGet()
+        public void OnGet(Denuncia denuncia)
         {
                                                
-           Itens = new Itens();
-           ListaTipos = Itens.Listar().ToList();
-           ListaBairro = _dbBairro.ObterTodos().ToList();
-           ListaLogradouro = new List<Logradouro>();
+            Itens = new Itens();
+            ListaTipos = Itens.Listar().ToList();
+            ListaBairro = _dbBairro.ObterTodos().ToList();
+            Categoria = new Categoria();
+            ListaCategoria = Categoria.Listar().ToList();
             
         }
 
@@ -55,28 +59,20 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
         {
 
             if(ModelState.IsValid){
-                return  RedirectToPage("/Resposta/", denuncia);
+                return  RedirectToPage("Resposta");
             }else
 
                                                      
-            Itens = new Itens();
-            ListaTipos = Itens.Listar().ToList();
-            ListaBairro = _dbBairro.ObterTodos().ToList();
-            ListaLogradouro = new List<Logradouro>();
-
-            
-            return RedirectToAction("Index");
+                       
+            return  RedirectToAction("Index");
  
 
         }
 
-        // public void OnGetLogradouro(string param){
-        //      ListaLogradouro = _dbLogradouro.Buscar(x => x.IdBairro == param).ToList();
-        // }
-
+             
         public JsonResult OnGetJson(String param){
 
-            return new JsonResult(_dbLogradouro.Buscar(x => x.IdBairro == param));
+            return new JsonResult(_dbLogradouro.Buscar(x => x.IdBairro == param).OrderBy(x => x.Nome));
             
         }
 

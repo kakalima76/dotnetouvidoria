@@ -24,12 +24,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context
        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Denuncia>().ToTable("tblDenuncia");
-            modelBuilder.Entity<Bairro>().ToTable("Bairro");
-            modelBuilder.ApplyConfiguration(new DenunciaMap());
-            modelBuilder.ApplyConfiguration(new BairroMap());
-            modelBuilder.ApplyConfiguration(new GeolocalizadoMap());
-            modelBuilder.ApplyConfiguration(new LogradouroMap());
-           
+            modelBuilder.ApplyConfiguration(new DenunciaMap()); 
         }
     }
 }

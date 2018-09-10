@@ -1,3 +1,12 @@
+/home/developer/dotnetouvidoria/Dominio/src/bin/Debug/netstandard2.0/Dominio.deps.json
+/home/developer/dotnetouvidoria/Dominio/src/bin/Debug/netstandard2.0/Dominio.dll
+/home/developer/dotnetouvidoria/Dominio/src/bin/Debug/netstandard2.0/Dominio.pdb
+/home/developer/dotnetouvidoria/Dominio/src/obj/Debug/netstandard2.0/Dominio.csprojAssemblyReference.cache
+/home/developer/dotnetouvidoria/Dominio/src/obj/Debug/netstandard2.0/Dominio.csproj.CoreCompileInputs.cache
+/home/developer/dotnetouvidoria/Dominio/src/obj/Debug/netstandard2.0/Dominio.AssemblyInfoInputs.cache
+/home/developer/dotnetouvidoria/Dominio/src/obj/Debug/netstandard2.0/Dominio.AssemblyInfo.cs
+/home/developer/dotnetouvidoria/Dominio/src/obj/Debug/netstandard2.0/Dominio.dll
+/home/developer/dotnetouvidoria/Dominio/src/obj/Debug/netstandard2.0/Dominio.pdb
 /home/developer/SISGO/Dominio/src/bin/Debug/netstandard2.0/Dominio.deps.json
 /home/developer/SISGO/Dominio/src/bin/Debug/netstandard2.0/Dominio.dll
 /home/developer/SISGO/Dominio/src/bin/Debug/netstandard2.0/Dominio.pdb

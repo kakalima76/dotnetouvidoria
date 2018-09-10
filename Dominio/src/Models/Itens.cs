@@ -10,8 +10,8 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
        
         public IEnumerable<Itens> Listar(){
             var lista = new List<Itens>(){
-                new Itens(){Name = "1746", Value = "0"},
-                new Itens(){Name = "Ouvidoria", Value = "1"}
+                new Itens(){Name = "1746", Value = "1746"},
+                new Itens(){Name = "Ouvidoria", Value = "1746"}
             }.AsEnumerable();
 
             return lista;
