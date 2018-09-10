@@ -1,0 +1,12 @@
+/home/developer/SISGO/Infraestrutura/src/bin/Debug/netstandard2.0/Infraestrutura.deps.json
+/home/developer/SISGO/Infraestrutura/src/bin/Debug/netstandard2.0/Infraestrutura.dll
+/home/developer/SISGO/Infraestrutura/src/bin/Debug/netstandard2.0/Infraestrutura.pdb
+/home/developer/SISGO/Infraestrutura/src/bin/Debug/netstandard2.0/Dominio.dll
+/home/developer/SISGO/Infraestrutura/src/bin/Debug/netstandard2.0/Dominio.pdb
+/home/developer/SISGO/Infraestrutura/src/obj/Debug/netstandard2.0/Infraestrutura.csprojAssemblyReference.cache
+/home/developer/SISGO/Infraestrutura/src/obj/Debug/netstandard2.0/Infraestrutura.csproj.CoreCompileInputs.cache
+/home/developer/SISGO/Infraestrutura/src/obj/Debug/netstandard2.0/Infraestrutura.AssemblyInfoInputs.cache
+/home/developer/SISGO/Infraestrutura/src/obj/Debug/netstandard2.0/Infraestrutura.AssemblyInfo.cs
+/home/developer/SISGO/Infraestrutura/src/obj/Debug/netstandard2.0/Infraestrutura.csproj.CopyComplete
+/home/developer/SISGO/Infraestrutura/src/obj/Debug/netstandard2.0/Infraestrutura.dll
+/home/developer/SISGO/Infraestrutura/src/obj/Debug/netstandard2.0/Infraestrutura.pdb

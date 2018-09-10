@@ -1,0 +1,87 @@
+@page "{handler?}"
+@model IndexModel
+
+
+<p>@DateTime.Now</p>
+
+<div class="conteiner">
+    
+    <form method="POST">
+        <fieldset>
+
+
+            <div class="form-group">
+                <label asp-for="@Model.Denuncia.tipo"></label>
+            </div>
+
+            <div class="form-group" >
+                <select class="form-control" asp-for="@Model.Denuncia.tipo">
+                    <option></option>
+
+                    @{
+                        @foreach (var item in Model.ListaTipos)
+                        {
+                            <option value="@item.Value">@item.Name</option>
+                        }
+                    }
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Denuncia.bairro"></label>
+            </div>
+
+            <div class="form-group"> 
+                    
+                <select asp-for="@Model.Denuncia.bairro" class="form-control" id="bairro" name="paramBairro">
+                    <option></option>
+                            @{
+
+                                @await Html.PartialAsync("./Shared/_BairrosPartial.cshtml",
+                                                    new ViewDataDictionary(this.ViewData)
+                                                    )
+                            }
+                </select>
+                
+                        
+
+                <script type="text/javascript">
+                    $('#bairro').change(function(){
+
+                            paramBairro = document.getElementById("bairro").value;
+                            console.log("Parâmetro: " + paramBairro)
+                                                               
+                            $.get('/formulario/Index/Json', {param: paramBairro}).done(function (logradouro) {
+                                console.log(logradouro);
+                                var options = '<option value=""> </options>';
+                                $.each(logradouro, function(key, val){
+                                    options += '<option value="' + val.logradouroId + '">' + val.nome + '</option>';    
+                                });
+
+                                $("#logradouro").html('<option></options').html(options);
+                            
+                            })
+                    });
+                </script>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Denuncia.logradouro"></label>
+            </div>
+
+            <div class="form-group">
+                <select asp-for="@Model.Denuncia.logradouro" class="form-control" id="logradouro">
+                    <div id="logradouro" class="form-control"></div>
+                </select>
+            </div>
+
+            <input type="submit" value="ENVIAR">
+
+        </fieldset>
+    </form>
+
+</div>
+
+
