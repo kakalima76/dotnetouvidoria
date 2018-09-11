@@ -12,6 +12,10 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Maps
             .HasKey(x => x.idDenuncia);
 
             builder
+            .Property(x => x.numero)
+            .HasColumnType("varchar(15)");
+
+            builder
             .Property(x => x.tipo)
             .HasColumnType("varchar(15)");
 

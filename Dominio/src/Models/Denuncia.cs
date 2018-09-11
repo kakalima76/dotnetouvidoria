@@ -15,6 +15,10 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
 
         public int idDenuncia { get; set; }
 
+        [Required(ErrorMessage = "Informe um número para a denúcia.")]
+        [Display(Name = "NUMERO DA DENÚNCIA")]
+        public string numero { get; set; }
+
         [Required(ErrorMessage = "Escolha um tipo de denúncia.")]
         [Display(Name = "TIPO DE DENÚNCIA")]
         public string tipo { get; set; }
