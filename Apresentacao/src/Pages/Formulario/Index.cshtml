@@ -1,14 +1,6 @@
 @page "{handler?}"
 @model IndexModel
 
-@{
-    var processo =  " * PROCESSO ABERTO APÓS VISTORIA COM MEDIDAS INICIAIS" +
-                    "<br> * PROCESSO ABERTO APÓS VISTORIA SEM MEDIDAS INICIAIS" +
-                    "<br> * PROCESSO ABERTO ANTES DA VISTORIA POR RISCO A INTEGRIDADE" +
-                    "<br> * PROCESSO ABERTO ANTES DA VISTORIA PARA OPERAÇÃO" +
-                    "<br> * PROCESSO ABERTO ANTES DA VISTORIA PARA POLIS";
-}
-
 
 <div class="conteiner formulario">
     
@@ -36,6 +28,7 @@
 
             <div class="form-group">
                 <input type="text" asp-for="Denuncia.numero" class="form-control" maxlength="15">
+                <span asp-validation-for="Denuncia.numero" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -153,8 +146,54 @@
             <textarea class="form-control" rows="2" cols="2" id="observacoes"></textarea>
             </div>
 
+            <div class="form-group">
+                <label id="label_inconsistencia">INCONSISTÊNCIA</label>
+            </div>
 
-            <input type="submit" value="ENVIAR">
+            <div class="form-group">
+            <textarea class="form-control" rows="2" cols="2" id="inconsistencia"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label id="label_analise">ANÁLISE    </label>
+            </div>
+
+            <div class="form-group">
+            <textarea class="form-control" rows="2" cols="2" id="analise"></textarea>
+            </div>
+
+
+            <div class="form-group">
+                <label id="label_orgaos">ÓRGÃO COMPETENTE</label>
+            </div>
+
+
+            <div class="form-group">
+                <select class="form-control" id="selectOrgaos">
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label id="label_acoes">AÇÕES ADOTADAS</label>
+            </div>
+
+
+            <div class="form-group">
+                <select class="form-control" id="selectAcoes">
+                </select>
+            </div>
+
+
+            <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">ENVIAR</button>
+            </div>
+            <div class="col-sm-4"></div>
+            </div>
+
+
+            
 
         </fieldset>
     </form>
