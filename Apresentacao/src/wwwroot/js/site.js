@@ -65,6 +65,11 @@ $('#btnFim').click(function () {
     $('#excel').hide();
 });
 
+//Toda vez que forem escolhidos uma bairro e um logradouro
+//o botão de download excel ficará escondico
+
+
+
 $('#bairro').change(function () {
 
     paramBairro = document.getElementById("bairro").value;
@@ -81,7 +86,15 @@ $('#bairro').change(function () {
     });
 });
 
+
+
+$('#logradouroLocal').change(function(){
+    $('#excel').hide();
+});
+
 $('#bairroQueryLocal').change(function () {
+
+    $('#excel').hide();
 
     paramBairro = document.getElementById("bairroQueryLocal").value;
 
@@ -93,7 +106,7 @@ $('#bairroQueryLocal').change(function () {
         });
 
         $("#logradouroLocal").html(options);
-
+       
 
     });
 });
@@ -200,6 +213,7 @@ $('#pesquisarLocal').click(function () {
             });
 
             $("#queryLocal").html(options);
+            $('#excel').show();
 
         });
 
