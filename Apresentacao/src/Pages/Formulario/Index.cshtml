@@ -1,9 +1,11 @@
 @page "{handler?}"
 @model IndexModel
 
+<partial name="_LoginPartial" />
+
 
 <div class="conteiner formulario">
-    
+
     <form method="POST">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <fieldset>
@@ -13,8 +15,8 @@
             </div>
 
             <div class="form-group">
-                <div class='input-group date' id='datetimepicker2'>
-                    <input type='text' asp-for="Denuncia.data" class="form-control" />
+                <div class='input-group date' id='datetimepicker'>
+                    <input type='text' asp-for="Denuncia.data" class="form-control" id="data"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>                  
@@ -38,14 +40,8 @@
             <div class="form-group" >
                 <select class="form-control" asp-for="Denuncia.tipo">
                     <option></option>
-
-                    @{
-                        @foreach (var item in Model.ListaTipos)
-                        {
-                            <option value="@item.Value">@item.Name</option>
-                        }
-                    }
-
+                    <option value="1746">1746</option>
+                    <option value="ouvidoria">ouvidoria</option>
                 </select>
                 <span asp-validation-for="Denuncia.tipo" class="text-danger"></span>
             </div>
@@ -67,11 +63,7 @@
                 </select>
                 
                         
-
-                <script type="text/javascript">
-                    
-                </script>
-
+              
                 <span asp-validation-for="Denuncia.bairro" class="text-danger"></span>
 
             </div>
@@ -82,7 +74,6 @@
 
             <div class="form-group">
                 <select asp-for="Denuncia.logradouro" class="form-control" id="logradouro">
-                    <div id="logradouro" class="form-control"></div>
                 </select>
                 <span asp-validation-for="Denuncia.logradouro" class="text-danger"></span>
             </div>
@@ -181,6 +172,21 @@
             <div class="form-group">
                 <select class="form-control" id="selectAcoes">
                 </select>
+            </div>
+
+
+            <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-primary btn-lg btn-block" id="btnGerarResposta">GERAR RESPOSTA</button>
+            </div>
+            <div class="col-sm-4"></div>
+            </div>
+
+
+            <div class="form-group formulario">
+            <textarea asp-for="Denuncia.respostaPadrao" class="form-control" rows="5" cols="2" id="respostaPadrao"></textarea>
+            <span asp-validation-for="Denuncia.respostaPadrao" class="text-danger"></span>
             </div>
 
 

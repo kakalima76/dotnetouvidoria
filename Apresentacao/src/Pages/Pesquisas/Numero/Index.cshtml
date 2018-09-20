@@ -1,0 +1,38 @@
+@page "{handler?}"
+@model IndexModel
+
+<partial name="_LoginPartial" />
+
+
+<div class="conteiner formulario">
+    
+
+            <div class="form-group">
+                <label>NUMERO</label>
+            </div>
+
+            <div>
+                <input type="text" class="form-control" placeholder="Informe o número da denuncia" id="queryNumero">
+            </div>
+
+
+            <div class="formulario">
+                <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <button type="botton" id="pesquisarNumero" class="btn btn-primary btn-lg btn-block">PESQUISAR</button>
+                </div>
+                <div class="col-sm-4"></div>
+                </div>
+            </div>
+            
+            <div id="queryNumeroEncontrado"></div>
+
+</div>
+
+ 
+  @section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+  }
+
+

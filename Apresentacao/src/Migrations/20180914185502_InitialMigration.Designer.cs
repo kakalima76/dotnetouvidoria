@@ -10,8 +10,8 @@ using Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context;
 namespace Apresentacao.Migrations
 {
     [DbContext(typeof(SGOContext))]
-    [Migration("20180910190040_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20180914185502_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,7 +53,12 @@ namespace Apresentacao.Migrations
                         .HasColumnType("varchar(15)");
 
                     b.Property<string>("logradouro")
+                        .IsRequired()
                         .HasColumnType("varchar(100)");
+
+                    b.Property<string>("numero")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)");
 
                     b.Property<string>("processo")
                         .HasColumnType("varchar(14)");

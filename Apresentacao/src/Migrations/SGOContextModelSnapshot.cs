@@ -34,7 +34,7 @@ namespace Apresentacao.Migrations
 
                     b.Property<string>("categoria")
                         .IsRequired()
-                        .HasColumnType("varchar(45)");
+                        .HasColumnType("varchar(80)");
 
                     b.Property<string>("cep")
                         .HasColumnType("varchar(10)");
@@ -55,12 +55,14 @@ namespace Apresentacao.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("numero")
+                        .IsRequired()
                         .HasColumnType("varchar(15)");
 
                     b.Property<string>("processo")
                         .HasColumnType("varchar(14)");
 
                     b.Property<string>("respostaPadrao")
+                        .IsRequired()
                         .HasColumnType("varchar(500)");
 
                     b.Property<string>("tipo")

@@ -14,5 +14,9 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Repository
 
         }
 
+        public Bairro ObterPorIdString(string id)
+        {
+            return _dbContext.Set<Bairro>().Find(id);
+        }
     }
 }

@@ -4,6 +4,6 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Interfaces
 {
     public interface IGeolocalizadoRepository : IRepository<Geolocalizado>
     {
-        //Aguardando implementação de método especializado para a classe Denuncia
+         Geolocalizado ObterPorIdString(string id);
     }
 }

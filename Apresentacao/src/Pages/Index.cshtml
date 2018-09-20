@@ -1,8 +1,72 @@
-﻿@page
+﻿@page 
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
+
+
+<div class="conteiner form-login">
+    <form method="POST">
+        <fieldset>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <center>
+                        <div asp-for="Usuario.Nome" class="form-group">
+                            <label>USUARIO</label>
+                        </div>
+                    </center>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <center>
+                        <div class="form-group">
+                            <input asp-for="Usuario.Nome" type="text" class="form-control">
+                            <span asp-validation-for="Usuario.Nome" class="text-danger"></span>             </div>
+                    </center>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <center>
+                        <div class="form-group">
+                            <label asp-for="Usuario.Password"></label>
+                        </div>
+                    </center>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <center>
+                        <div class="form-group">
+                            <input asp-for="Usuario.Password" type="password" class="form-control">
+                            <span asp-validation-for="Usuario.Password" class="text-danger"></span>
+                        </div>
+                    </center>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">ENVIAR</button>
+                    </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </fieldset>
+    </form>
+</div> 
 
 
 @section Scripts {

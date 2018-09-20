@@ -1,0 +1,58 @@
+@page "{handler?}"
+@model IndexModel
+
+<partial name="_LoginPartial" />
+
+<div class="conteiner formulario">
+    
+
+            <div class="form-group">
+                <label>BAIRROS</label>
+            </div>
+
+
+
+            <div class="form-group">
+                <select class="form-control" id="bairroQueryLocal">
+                        <option></option>
+                                @{
+
+                                    @await Html.PartialAsync("./Shared/_BairrosPartial.cshtml",
+                                                        new ViewDataDictionary(this.ViewData)
+                                                        )
+                                }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>LOGRADOURO</label>
+            </div>
+
+            <div class="form-group"></div>
+                <select class="form-control" id="logradouroLocal">
+                </select>
+            </div>
+
+
+            <div class="formulario">
+                <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <button type="botton" id="pesquisarLocal" class="btn btn-primary btn-lg btn-block">PESQUISAR</button>
+                </div>
+                <div class="col-sm-4"></div>
+                </div>
+            </div>
+            
+            <div id="queryLocal"></div>
+
+  
+
+</div>
+
+ 
+  @section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+  }
+
+

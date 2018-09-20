@@ -9,9 +9,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Formatters.Json;
 using Rio.SMF.CCU.Ouvidoria.Dominio.Models;
 using Rio.SMF.CCU.Ouvidoria.Infraestrutura.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
 {
+
+    [Authorize]
     public class IndexModel : PageModel
     {
         [BindProperty]
@@ -19,11 +23,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
 
         public Bairro Bairro { get; set; }
 
-        public Itens Itens { get; set; }
-
-        public IList<Itens> ListaTipos{ get; set; }
-
-        public IList<Bairro> ListaBairro{ get; set; }
+        public IEnumerable<Bairro> ListaBairro{ get; set; }
 
         public Categoria Categoria { get; set; }
 
@@ -31,25 +31,36 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
               
         private readonly IBairroRepository _dbBairro;
         private readonly ILogradouroRepository _dbLogradouro;
+        private readonly IDenunciaRepository _dbDenuncia;
 
-        public IndexModel(IBairroRepository dbBairro, ILogradouroRepository dbLogradouro)
+        private readonly IGeolocalizadoRepository _dbGeolocalizado;
+
+
+        public IndexModel
+        (
+            IBairroRepository dbBairro, 
+            ILogradouroRepository dbLogradouro, 
+            IDenunciaRepository dbDenuncia,
+            IGeolocalizadoRepository dbGeolocalizado
+        )
         {
             _dbBairro = dbBairro;
             _dbLogradouro = dbLogradouro;
+            _dbDenuncia = dbDenuncia;
+            _dbGeolocalizado = dbGeolocalizado;
         }
 
 
 
         protected IndexModel()
         {
+
         }
 
         public void OnGet(Denuncia denuncia)
         {
                                                
-            Itens = new Itens();
-            ListaTipos = Itens.Listar().ToList();
-            ListaBairro = _dbBairro.ObterTodos().ToList();
+            ListaBairro = _dbBairro.ObterTodos().OrderBy(x => x.Nome);
             Categoria = new Categoria();
             ListaCategoria = Categoria.Listar().ToList();
             
@@ -58,15 +69,35 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
         public IActionResult OnPost(Denuncia denuncia)
         {
 
-            if(ModelState.IsValid){
-                return  RedirectToPage("Resposta");
-            }else
+           
+           if(ModelState.IsValid){
 
-                                                     
+                var logradouroId = Convert.ToInt32(denuncia.logradouro);
+                Categoria = new Categoria();
+                var lista = Categoria.Listar().ToList();
+                var elemen  = lista.Where(x => x.Value == "0").ToArray();
+                
+
+                denuncia.lat =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).Latitude;
+                denuncia.lng =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).Longitude;
+                denuncia.cep =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).GeolocalizadoId;
+                denuncia.logradouro = _dbLogradouro.ObterPorIdLong(logradouroId).Nome;
+                denuncia.bairro = _dbBairro.ObterPorIdString(denuncia.bairro).Nome; 
+                denuncia.categoria = elemen[0].Name.ToString();
+
+                try{
+                     _dbDenuncia.Adicionar(denuncia);
+                }catch(Exception ex){
+                    return RedirectToPage("/Error");
+                }
+
+               
+
+            return  RedirectToPage("Index");
+
+           }                         
                        
             return  RedirectToAction("Index");
- 
-
         }
 
              
@@ -76,10 +107,10 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
             
         }
 
-       
+         public async Task<IActionResult> OnPostLogout(){
+            await HttpContext.SignOutAsync();
 
-        
-
-                
+            return RedirectToPage("/Index");
+        }                
     }
 }

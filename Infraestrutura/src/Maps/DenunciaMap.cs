@@ -21,7 +21,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Maps
 
             builder
             .Property(x => x.categoria)
-            .HasColumnType("varchar(45)");
+            .HasColumnType("varchar(80)");
 
             builder
             .Property(x => x.agente)

@@ -7,51 +7,40 @@ namespace Apresentacao.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "bairro",
+                name: "respostaPadrao",
                 table: "tblDenuncia",
-                type: "varchar(50)",
+                type: "varchar(500)",
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "varchar(50)",
+                oldType: "varchar(500)",
                 oldNullable: true);
 
             migrationBuilder.AlterColumn<string>(
-                name: "agente",
+                name: "categoria",
                 table: "tblDenuncia",
-                type: "varchar(45)",
-                nullable: true,
+                type: "varchar(80)",
+                nullable: false,
                 oldClrType: typeof(string),
                 oldType: "varchar(45)");
-
-            migrationBuilder.AddColumn<string>(
-                name: "complemento",
-                table: "tblDenuncia",
-                type: "varchar(50)",
-                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "complemento",
-                table: "tblDenuncia");
-
             migrationBuilder.AlterColumn<string>(
-                name: "bairro",
+                name: "respostaPadrao",
                 table: "tblDenuncia",
-                type: "varchar(50)",
+                type: "varchar(500)",
                 nullable: true,
                 oldClrType: typeof(string),
-                oldType: "varchar(50)");
+                oldType: "varchar(500)");
 
             migrationBuilder.AlterColumn<string>(
-                name: "agente",
+                name: "categoria",
                 table: "tblDenuncia",
                 type: "varchar(45)",
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "varchar(45)",
-                oldNullable: true);
+                oldType: "varchar(80)");
         }
     }
 }

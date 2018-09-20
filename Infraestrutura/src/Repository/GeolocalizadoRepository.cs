@@ -11,8 +11,12 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Repository
     {
         public GeolocalizadoRepository(locaisContext dbContext) : base(dbContext)
         {
-
+                        
         }
 
+        public Geolocalizado ObterPorIdString(string id)
+        {
+            return _dbContext.Set<Geolocalizado>().Find(id);
+        }
     }
 }

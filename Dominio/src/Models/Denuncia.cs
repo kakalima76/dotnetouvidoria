@@ -12,6 +12,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
             
         }
 
+       
 
         public int idDenuncia { get; set; }
 
@@ -51,6 +52,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
         
         public string lng { get; set; }
         
+        [Required(ErrorMessage = "Gere uma resposta padrão.")]
         [Display(Name = "RESPOSTA PADRÃO")]
         public string respostaPadrao { get; set; }
 
@@ -58,8 +60,5 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
         public string complemento { get; set; }
     }
 
-   
-
-    
-    
+       
 }
