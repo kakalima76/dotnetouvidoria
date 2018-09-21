@@ -84,14 +84,11 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
                 denuncia.logradouro = _dbLogradouro.ObterPorIdLong(logradouroId).Nome;
                 denuncia.bairro = _dbBairro.ObterPorIdString(denuncia.bairro).Nome; 
                 denuncia.categoria = elemen[0].Name.ToString();
+                denuncia.agente = User.Identity.Name;
 
-                try{
-                     _dbDenuncia.Adicionar(denuncia);
-                }catch(Exception ex){
-                    return RedirectToPage("/Error");
-                }
+                _dbDenuncia.Adicionar(denuncia);
 
-               
+                             
 
             return  RedirectToPage("Index");
 

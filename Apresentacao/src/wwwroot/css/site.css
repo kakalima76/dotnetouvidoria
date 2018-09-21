@@ -52,7 +52,11 @@ body {
     border-width: 0.1em;
 }
 .blue {
-    color: blue;
+    color: #587e76;
+}
+
+.green {
+    color: green;
 }
 
 .justificado {
@@ -60,6 +64,40 @@ body {
     text-justify: inter-word;
     padding-right: 0.2em;
 }
+
+.glyphicon.glyphicon-check {
+    font-size: 1.5em;
+    color: aqua;
+}
+
+.glyphicon.glyphicon-trash{
+    color:  #587e76;
+}
+
+.glyphicon.glyphicon-calendar{
+    color:  #587e76;
+}
+
+.glyphicon.glyphicon-user{
+    color:  #587e76;
+    font-size: 1.0em;
+}
+
+.glyphicon.glyphicon-lock{
+    color:  #587e76;
+    font-size: 1.0em;
+}
+
+.glyphicon.glyphicon-th-large{
+    color:  #587e76;
+}
+
+label{
+    color: #587e76;
+}
+
+
+
 
 
 

@@ -90,7 +90,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Pesquisas.Local
                 ListaDenuncia = _dbDenuncia.Buscar(x => x.bairro.Equals(strbairro) && x.logradouro.Equals(strLogradouro));
 
                 string sWebRootFolder = _hostingEnvironment.WebRootPath;
-                string sFileName = @"consulta.xlsx";
+                string sFileName = @"consultaLocais.xlsx";
                 string URL = string.Format("{0}://{1}/{2}", Request.Scheme, Request.Host, sFileName);
                 FileInfo file = new FileInfo(Path.Combine(sWebRootFolder, sFileName));
                 var memory = new MemoryStream();

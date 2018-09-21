@@ -17,33 +17,33 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
         public int idDenuncia { get; set; }
 
         [Required(ErrorMessage = "Informe um número para a denúcia.")]
-        [Display(Name = "NUMERO DA DENÚNCIA")]
+        [Display(Name = "Número")]
         public string numero { get; set; }
 
         [Required(ErrorMessage = "Escolha um tipo de denúncia.")]
-        [Display(Name = "TIPO DE DENÚNCIA")]
+        [Display(Name = "Tipo")]
         public string tipo { get; set; }
 
         [Required(ErrorMessage = "Escolha uma categoria.")]
-        [Display(Name = "CATEGORIA DA DENÚNCIA")]
+        [Display(Name = "Categoria")]
         public string categoria { get; set; }
 
        
-        [Display(Name = "DATA DA VISITA")]
+        [Display(Name = "Data")]
         [Required(ErrorMessage = "Defina uma data.")]
         public DateTime data { get; set; }
         
         public string agente { get; set; }
 
-        [Display(Name = "NÚMERO DO PROCESSO")]
+        [Display(Name = "Número do chamado")]
         public string processo { get; set; }
 
-        [Display(Name = "LOGRADOURO")]
+        [Display(Name = "Logradouro")]
         [Required(ErrorMessage = "Selecione um logradouro.")]
         public string logradouro { get; set; }
 
         [Required(ErrorMessage = "Selecione um bairro.")]
-        [Display(Name = "BAIRRO")]
+        [Display(Name = "Bairro")]
         public string bairro { get; set; }
 
         public string cep { get; set; }
@@ -53,10 +53,10 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
         public string lng { get; set; }
         
         [Required(ErrorMessage = "Gere uma resposta padrão.")]
-        [Display(Name = "RESPOSTA PADRÃO")]
+        [Display(Name = "Resposta padrão")]
         public string respostaPadrao { get; set; }
 
-        [Display(Name = "COMPLEMENTO")]
+        [Display(Name = "Complemento")]
         public string complemento { get; set; }
     }
 

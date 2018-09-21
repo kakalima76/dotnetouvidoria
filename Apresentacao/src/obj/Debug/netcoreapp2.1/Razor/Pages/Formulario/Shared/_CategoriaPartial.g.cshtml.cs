@@ -55,7 +55,7 @@ using Rio.SMF.CCU.Ouvidoria.Apresentacao;
             WriteLiteral("    ");
             EndContext();
             BeginContext(52, 48, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fb196e2c348a422a8b759d848a131e59", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "52515468ae5c40c0b045a83bd8c28e45", async() => {
                 BeginContext(82, 9, false);
 #line 4 "/home/developer/SISGO/Apresentacao/src/Pages/Formulario/Shared/_CategoriaPartial.cshtml"
                             Write(item.Name);

@@ -71,10 +71,10 @@
 /home/developer/SISGO/Apresentacao/src/obj/Debug/netcoreapp2.1/Apresentacao.csproj.CopyComplete
 /home/developer/SISGO/Apresentacao/src/obj/Debug/netcoreapp2.1/Apresentacao.dll
 /home/developer/SISGO/Apresentacao/src/obj/Debug/netcoreapp2.1/Apresentacao.pdb
-/home/developer/SISGO/Apresentacao/src/obj/Debug/netcoreapp2.1/Razor/Pages/Conta/Cadastra.g.cshtml.cs
 /home/developer/SISGO/Apresentacao/src/obj/Debug/netcoreapp2.1/Razor/Pages/Pesquisas/Data/Index.g.cshtml.cs
 /home/developer/SISGO/Apresentacao/src/obj/Debug/netcoreapp2.1/Razor/Pages/Pesquisas/Local/Index.g.cshtml.cs
 /home/developer/SISGO/Apresentacao/src/obj/Debug/netcoreapp2.1/Razor/Pages/Pesquisas/Local/Shared/_BairrosPartial.g.cshtml.cs
 /home/developer/SISGO/Apresentacao/src/obj/Debug/netcoreapp2.1/Razor/Pages/Pesquisas/Numero/Index.g.cshtml.cs
 /home/developer/SISGO/Apresentacao/src/obj/Debug/netcoreapp2.1/Razor/Pages/Shared/_LoginPartial.g.cshtml.cs
 /home/developer/SISGO/Apresentacao/src/obj/Debug/netcoreapp2.1/Razor/Pages/Index.g.cshtml.cs
+/home/developer/SISGO/Apresentacao/src/obj/Debug/netcoreapp2.1/Razor/Pages/Conta/Index.g.cshtml.cs

@@ -11,6 +11,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
 
         [Required(ErrorMessage="Informe uma senha")]
         [DataType("Password")]
+         [Display(Name = "SENHA")]
         public string Password { get; set; }
 
              

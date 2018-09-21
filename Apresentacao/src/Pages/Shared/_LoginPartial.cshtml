@@ -13,8 +13,10 @@
 
       @if ((await AuthorizationService.AuthorizeAsync(User, "RequireAdministratorRole")).Succeeded)
         {
-            <a class="navbar-brand" asp-page="/Conta/Cadastra">Cadastro</a>
+            <a class="navbar-brand" asp-page="/Conta/Index">Cadastro</a>
         }
+
+        
 
       
     </div>
@@ -22,13 +24,15 @@
       
       <ul class="nav navbar-nav navbar-right">
 
+        <a class="navbar-brand"><span class="blue"> Usuário: @User.Identity.Name</span></a>
+
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pesquisas
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item"  asp-page="/Pesquisas/Data/Index">Data</a></li>
-            <li><a class="dropdown-item"  asp-page="/Pesquisas/Local/Index">Local</a></li>
-            <li><a class="dropdown-item"  asp-page="/Pesquisas/Numero/Index">Número</a></li>
+            <li><a class="dropdown-item"  asp-page="/Pesquisas/Data/Index"><span class="glyphicon glyphicon-search"></span> Data</a></li>
+            <li><a class="dropdown-item"  asp-page="/Pesquisas/Local/Index"><span class="glyphicon glyphicon-search"></span> Local</a></li>
+            <li><a class="dropdown-item"  asp-page="/Pesquisas/Numero/Index"><span class="glyphicon glyphicon-search"></span> Número</a></li>
           </ul>
         </li>
 

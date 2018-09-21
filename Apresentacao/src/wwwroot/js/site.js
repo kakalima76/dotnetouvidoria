@@ -13,6 +13,12 @@
 });
 
 
+//botão para limpar o campo de busca de chamado por número
+$('#limparCampo').click(function(){
+    $('#queryNumero').val('');
+});
+
+
 //O botão de download para excel deverá iniciar escondido
 $('#excel').hide();
 
@@ -159,11 +165,6 @@ $('#pesquisarData').click(function () {
 
         });
     }
-
-
-
-
-
 
 });
 

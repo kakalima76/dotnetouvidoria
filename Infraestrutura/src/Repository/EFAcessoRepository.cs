@@ -91,11 +91,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Repository
 
         }
 
-        public void logof()
-        {
-            throw new NotImplementedException();
-        }
-
+      
         public Usuario ObterPorId(int id)
         {
             return _dbContext.Set<Usuario>().Find(id);

@@ -71,7 +71,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Pesquisas.Data
                 ListaDenuncia = _dbDenuncia.Buscar(x => x.data >= dtInicio && x.data <= dtFim);
 
                 string sWebRootFolder = _hostingEnvironment.WebRootPath;
-                string sFileName = @"consulta.xlsx";
+                string sFileName = @"consultaPorData.xlsx";
                 string URL = string.Format("{0}://{1}/{2}", Request.Scheme, Request.Host, sFileName);
                 FileInfo file = new FileInfo(Path.Combine(sWebRootFolder, sFileName));
                 var memory = new MemoryStream();
