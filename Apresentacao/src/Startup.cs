@@ -63,7 +63,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
                 .AddCookie(options => 
 
                     
-                    options.AccessDeniedPath = ("/")
+                    options.LoginPath = ("/")
                     
                 );
 

@@ -35,7 +35,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
         
         public string agente { get; set; }
 
-        [Display(Name = "Número do chamado")]
+        [Display(Name = "Número do processo")]
         public string processo { get; set; }
 
         [Display(Name = "Logradouro")]
