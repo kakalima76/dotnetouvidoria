@@ -26,7 +26,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseSqlite(@"Data Source=/bin/Debug/netcoreapp2.1/locais.sqlite3");
+                optionsBuilder.UseSqlite(@"Data Source=./bin/Debug/netcoreapp2.1/locais.sqlite3");
             }
         }
 
