@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -57,9 +58,11 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
             
             var connection = Configuration["ConexaoSqlite:SqliteConnectionString"];
 
-            
+            var t = Directory.GetDirectoryRoot("./bin/Debug/netcoreapp2.1/locais.sqlite3");
+            var str = "Data Source=." + t + "bin/Debug/netcoreapp2.1/locais.sqlite3";
+
             services.AddDbContext<locaisContext>(options =>
-                options.UseSqlite(@"Data Source=./bin/Debug/netcoreapp2.1/locais.sqlite3"));
+                options.UseSqlite(str));
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

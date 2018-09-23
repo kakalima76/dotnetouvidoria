@@ -32,7 +32,9 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
                 .Build();
 
             host.Run();
-            
+
+            Console.WriteLine("");
+                     
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
