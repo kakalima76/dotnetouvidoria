@@ -57,8 +57,9 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
             
             var connection = Configuration["ConexaoSqlite:SqliteConnectionString"];
 
+            
             services.AddDbContext<locaisContext>(options =>
-                options.UseSqlite(connection));
+                options.UseSqlite(@"Data Source=./bin/Debug/netcoreapp2.1/locais.sqlite3"));
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
