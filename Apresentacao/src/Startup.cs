@@ -54,9 +54,11 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
                 options.UseSqlServer(
                     Configuration.GetConnectionString("UserConnection")));
 
+            
+            var connection = Configuration["ConexaoSqlite:SqliteConnectionString"];
+
             services.AddDbContext<locaisContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString("SecondConnection")));
+                options.UseSqlite(connection));
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
