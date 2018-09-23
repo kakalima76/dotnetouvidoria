@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Apresentacao.Migrations.User
 {
-    public partial class UserInitialMigration : Migration
+    public partial class InicialUserContext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,9 @@ namespace Apresentacao.Migrations.User
                 {
                     UsuarioId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(type: "varchar(45)", nullable: true),
-                    Senha = table.Column<string>(type: "varchar(MAX)", nullable: true),
+                    Nome = table.Column<string>(type: "varchar(45)", nullable: false),
+                    Password = table.Column<string>(type: "varchar(MAX)", nullable: false),
+                    ConfirmPassword = table.Column<string>(type: "varchar(45)", nullable: true),
                     Status = table.Column<string>(type: "varchar(45)", nullable: true)
                 },
                 constraints: table =>

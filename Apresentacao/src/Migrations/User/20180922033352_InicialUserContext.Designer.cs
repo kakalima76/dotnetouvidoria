@@ -9,8 +9,8 @@ using Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context;
 namespace Apresentacao.Migrations.User
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20180917170939_acessoMigration")]
-    partial class acessoMigration
+    [Migration("20180922033352_InicialUserContext")]
+    partial class InicialUserContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

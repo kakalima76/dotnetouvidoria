@@ -18,7 +18,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context
 
          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=ACESSO;User ID=sa;Password=Ni244265;", b => b.MigrationsAssembly("Apresentacao")); 
+            optionsBuilder.UseSqlServer("Data Source=tcp:dotnet-ouvidoria.database.windows.net,1433;Initial Catalog=ACESSO;User Id=kakalima76@dotnet-ouvidoria.database.windows.net;Password=Ni244265;", b => b.MigrationsAssembly("Apresentacao")); 
         }
 
        protected override void OnModelCreating(ModelBuilder modelBuilder)

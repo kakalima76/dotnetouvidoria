@@ -10,8 +10,8 @@ using Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context;
 namespace Apresentacao.Migrations
 {
     [DbContext(typeof(SGOContext))]
-    [Migration("20180914213242_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20180922033210_InicialSGOContext")]
+    partial class InicialSGOContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
