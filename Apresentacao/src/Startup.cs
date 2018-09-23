@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -22,9 +21,12 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IHostingEnvironment _env;
+
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -57,12 +59,11 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
 
             
             var connection = Configuration["ConexaoSqlite:SqliteConnectionString"];
+             string connectionString = "Filename=" + System.IO.Path.Combine(_env.ContentRootPath, connection);
 
-            var t = Directory.GetDirectoryRoot("./bin/Debug/netcoreapp2.1/locais.sqlite3");
-            var str = "Data Source=." + t + "bin/Debug/netcoreapp2.1/locais.sqlite3";
 
             services.AddDbContext<locaisContext>(options =>
-                options.UseSqlite(str));
+                options.UseSqlite((connectionString)));
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -108,7 +109,6 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
 
             app.UseAuthentication();
             
-
             app.UseMvc();
         }
     }

@@ -1,0 +1,67 @@
+@page "{handler?}/{DataInicio?}/{DataFim?}"
+@model IndexModel
+
+<partial name="_LoginPartial" />
+
+
+
+<div class="conteiner formulario">
+    
+                       
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label><span class="glyphicon glyphicon-th-large"></span>  Data e hora inicial</label>
+            </div>
+
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker2'>
+                    <input type='text'  class="form-control" id="dataInicio" name="DataInicio"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar" id="btnInicio"></span>
+                    </span>                  
+                </div>
+                <span  class="text-danger"></span>
+            </div>
+
+             <div class="form-group">
+                <label><span class="glyphicon glyphicon-th-large"></span>  Data e hora final</label>
+            </div>
+
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker3'>
+                    <input type='text'  class="form-control" id="dataFim" name="DataFim"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar" id="btnFim"></span>
+                    </span>                  
+                </div>
+                <span  class="text-danger"></span>
+            </div>
+           
+            
+           
+            
+            
+
+            
+                <button asp-page-handler="Export" class="btn btn-link" id="excel"><span class="glyphicon glyphicon-download"></span></span> Exportar para excel</button>           
+            </form>
+
+             <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <button  type="reset" id="pesquisarData" class="btn btn-primary btn-lg btn-block"><span class="glyphicon  glyphicon-check"></span></button>
+            </div>
+            <div class="col-sm-4"></div>
+            </div>
+
+            <div id="queryData"></div>
+</div>
+
+
+
+  @section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+  }
+
+
+

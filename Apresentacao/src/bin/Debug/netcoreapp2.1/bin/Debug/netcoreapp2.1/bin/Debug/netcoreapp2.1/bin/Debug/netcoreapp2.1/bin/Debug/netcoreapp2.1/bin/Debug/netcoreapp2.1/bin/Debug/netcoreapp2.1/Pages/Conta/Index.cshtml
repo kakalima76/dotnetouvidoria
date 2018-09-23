@@ -1,0 +1,62 @@
+@page 
+@model IndexModel
+
+<partial name="_LoginPartial" />
+
+
+<div class="conteiner formulario">
+    
+    <form method="POST">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <fieldset>
+
+                      
+            <div class="form-group">
+                <label asp-for="Usuario.Nome"></label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" asp-for="Usuario.Nome" class="form-control" maxlength="15">
+                <span asp-validation-for="Usuario.Nome" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Usuario.Password"></label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" asp-for="Usuario.Password" class="form-control" maxlength="15">
+                <span asp-validation-for="Usuario.Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Usuario.ConfirmPassword"></label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" asp-for="Usuario.ConfirmPassword" class="form-control" maxlength="15">
+                <span asp-validation-for="Usuario.ConfirmPassword" class="text-danger"></span>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">ENVIAR</button>
+                    </div>
+                <div class="col-sm-4"></div>
+            </div>
+
+            
+
+        </fieldset>
+    </form>
+    
+</div>
+
+
+  @section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+  }
+
+

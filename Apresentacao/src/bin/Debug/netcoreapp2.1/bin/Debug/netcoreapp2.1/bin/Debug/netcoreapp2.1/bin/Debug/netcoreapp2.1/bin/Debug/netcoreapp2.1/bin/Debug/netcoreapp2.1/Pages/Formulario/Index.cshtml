@@ -1,0 +1,215 @@
+@page "{handler?}"
+@model IndexModel
+
+<partial name="_LoginPartial" />
+
+
+<div class="conteiner formulario">
+
+    <form method="POST">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <fieldset>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label asp-for="Denuncia.data"></label>
+            </div>
+
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker'>
+                    <input type='text' asp-for="Denuncia.data" class="form-control" id="data"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>                  
+                </div>
+                <span asp-validation-for="Denuncia.data" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label asp-for="Denuncia.numero"></label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" asp-for="Denuncia.numero" class="form-control" maxlength="15">
+                <span asp-validation-for="Denuncia.numero" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label asp-for="Denuncia.tipo"></label>
+            </div>
+
+            <div class="form-group" >
+                <select class="form-control" asp-for="Denuncia.tipo">
+                    <option></option>
+                    <option value="1746">1746</option>
+                    <option value="ouvidoria">ouvidoria</option>
+                </select>
+                <span asp-validation-for="Denuncia.tipo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label asp-for="Denuncia.bairro"></label>
+            </div>
+
+            <div class="form-group"> 
+                    
+                <select asp-for="Denuncia.bairro" class="form-control" id="bairro">
+                    <option></option>
+                            @{
+
+                                @await Html.PartialAsync("./Shared/_BairrosPartial.cshtml",
+                                                    new ViewDataDictionary(this.ViewData)
+                                                    )
+                            }
+                </select>
+                
+                        
+              
+                <span asp-validation-for="Denuncia.bairro" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label asp-for="Denuncia.logradouro"></label>
+            </div>
+
+            <div class="form-group">
+                <select asp-for="Denuncia.logradouro" class="form-control" id="logradouro">
+                </select>
+                <span asp-validation-for="Denuncia.logradouro" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label asp-for="Denuncia.complemento"></label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" asp-for="Denuncia.complemento" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label asp-for="Denuncia.categoria"></label>
+            </div>
+
+            <div class="form-group"> 
+                    
+                <select asp-for="Denuncia.categoria" class="form-control" id="categoria">
+                    <option></option>
+                            @{
+
+                                @await Html.PartialAsync("./Shared/_CategoriaPartial.cshtml",
+                                                    new ViewDataDictionary(this.ViewData)
+                                                    )
+                            }
+                </select>
+
+                <span asp-validation-for="Denuncia.categoria" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label asp-for="Denuncia.processo" id="label_processo"></label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" asp-for="Denuncia.processo" class="form-control" id="processo">
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label id="label_constatacao">Constatação</label>
+            </div>
+
+            <div class="form-group">
+            <textarea class="form-control" rows="2" cols="2" id="constatacao"></textarea>
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label id="label_detalhes">Detalhes</label>
+            </div>
+
+            <div class="form-group">
+            <textarea class="form-control" rows="2" cols="2" id="detalhes"></textarea>
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label id="label_observacoes">Observações</label>
+            </div>
+
+            <div class="form-group">
+            <textarea class="form-control" rows="2" cols="2" id="observacoes"></textarea>
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label id="label_inconsistencia">Inconsistência</label>
+            </div>
+
+            <div class="form-group">
+            <textarea class="form-control" rows="2" cols="2" id="inconsistencia"></textarea>
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label id="label_analise">Análise</label>
+            </div>
+
+            <div class="form-group">
+            <textarea class="form-control" rows="2" cols="2" id="analise"></textarea>
+            </div>
+
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label id="label_orgaos">Órgão competente</label>
+            </div>
+
+
+            <div class="form-group">
+                <select class="form-control" id="selectOrgaos">
+                </select>
+            </div>
+
+            <div class="form-group">
+                <span class="glyphicon glyphicon-th-large"></span><label id="label_acoes">Ações adotadas</label>
+            </div>
+
+
+            <div class="form-group">
+                <select class="form-control" id="selectAcoes">
+                </select>
+            </div>
+
+
+            <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-primary btn-lg btn-block" id="btnGerarResposta">GERAR RESPOSTA</button>
+            </div>
+            <div class="col-sm-4"></div>
+            </div>
+
+
+            <div class="form-group formulario">
+            <textarea asp-for="Denuncia.respostaPadrao" class="form-control" rows="5" cols="2" id="respostaPadrao"></textarea>
+            <span asp-validation-for="Denuncia.respostaPadrao" class="text-danger"></span>
+            </div>
+
+
+            <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">ENVIAR</button>
+            </div>
+            <div class="col-sm-4"></div>
+            </div>
+
+
+            
+
+        </fieldset>
+    </form>
+
+  
+
+</div>
+
+  @section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+  }
+
+
