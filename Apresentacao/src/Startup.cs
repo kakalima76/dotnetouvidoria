@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,12 +22,9 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
 {
     public class Startup
     {
-        private readonly IHostingEnvironment _env;
-
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -58,12 +56,19 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
                     Configuration.GetConnectionString("UserConnection")));
 
             
-            var connection = Configuration["ConexaoSqlite:SqliteConnectionString"];
-             string connectionString = "Filename=" + System.IO.Path.Combine(_env.ContentRootPath, connection);
+
+
+
+            //var connection = Configuration["ConexaoSqlite:SqliteConnectionString"];
+
+
+            var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = "locais.sqlite3" };
+            var connectionString = connectionStringBuilder.ToString();
+            var conn = new SqliteConnection(connectionString);
 
 
             services.AddDbContext<locaisContext>(options =>
-                options.UseSqlite((connectionString)));
+                options.UseSqlite((conn)));
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -93,6 +98,17 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+             var builder = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);         
+
+
+            using (var db = new locaisContext())
+            {
+                db.Database.EnsureCreated();
+                db.Database.Migrate();
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -109,6 +125,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
 
             app.UseAuthentication();
             
+          
             app.UseMvc();
         }
     }
