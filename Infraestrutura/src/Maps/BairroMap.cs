@@ -20,7 +20,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Maps
                     .IsUnique();
 
             builder.Property(e => e.BairroId)
-                    .HasColumnName("idBairro")
+                    .HasColumnName("bairroId")
                     .HasColumnType("varchar ( 75 )")
                     .ValueGeneratedNever();
 
