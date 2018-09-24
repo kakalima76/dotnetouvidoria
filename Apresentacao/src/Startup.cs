@@ -91,17 +91,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-             var builder = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.json")
-            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);         
-
-
-            using (var db = new locaisContext())
-            {
-                db.Database.EnsureCreated();
-                db.Database.Migrate();
-            }
-
+          
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
