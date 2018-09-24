@@ -40,10 +40,14 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context
             }
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
-               
+            modelBuilder.Entity<Bairro>().ToTable("bairro");
+            modelBuilder.ApplyConfiguration(new BairroMap());
+            modelBuilder.Entity<Logradouro>().ToTable("logradouro");
+            modelBuilder.ApplyConfiguration(new LogradouroMap());
+            modelBuilder.Entity<Geolocalizado>().ToTable("geolocalizado");
+            modelBuilder.ApplyConfiguration(new GeolocalizadoMap());    
         }
     }
 }

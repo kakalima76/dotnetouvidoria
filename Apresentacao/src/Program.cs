@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context;
-using src;
 
 namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
 {
