@@ -18,13 +18,17 @@ using Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context;
 using Rio.SMF.CCU.Ouvidoria.Infraestrutura.Interfaces;
 using Rio.SMF.CCU.Ouvidoria.Infraestrutura.Repository;
 
+
 namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+          
+        private IHostingEnvironment _appHost;
+        public Startup(IConfiguration configuration, IHostingEnvironment appHost)
         {
             Configuration = configuration;
+            _appHost = appHost;
         }
 
         public IConfiguration Configuration { get; }
@@ -55,20 +59,9 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
                 options.UseSqlServer(
                     Configuration.GetConnectionString("UserConnection")));
 
-            
-
-
-
-            //var connection = Configuration["ConexaoSqlite:SqliteConnectionString"];
-
-
-            var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = "locais.sqlite3" };
-            var connectionString = connectionStringBuilder.ToString();
-            var conn = new SqliteConnection(connectionString);
-
-
+           
             services.AddDbContext<locaisContext>(options =>
-                options.UseSqlite((conn)));
+                options.UseSqlite($"Data Source={_appHost.ContentRootPath}/locais.sqlite3"));
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

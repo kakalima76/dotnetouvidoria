@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
     <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.3" PrivateAssets="All" />
   </ItemGroup>
 
@@ -21,14 +22,5 @@
     <ProjectReference Include="..\..\Dominio\src\Dominio.csproj" />
   </ItemGroup>
 
-  <Target Name="AddWwwRoot" BeforeTargets="AssignTargetPaths" DependsOnTargets="BeforeBuild;BeforePublish">
-    <ItemGroup>
-      <Content Include="wwwroot/**;**/*.cshtml;appsettings.json;" CopyToOutputDirectory="Always" />
-    </ItemGroup>
-  </Target>
- 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
+  
 </Project>
