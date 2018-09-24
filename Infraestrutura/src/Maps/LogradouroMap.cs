@@ -16,7 +16,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Maps
                     .HasName("indiceLogradouro");
 
             builder.Property(e => e.LogradouroId)
-                    .HasColumnName("cep")
+                    .HasColumnName("LogradouroId")
                     .ValueGeneratedNever();
 
             builder.Property(e => e.IdBairro)

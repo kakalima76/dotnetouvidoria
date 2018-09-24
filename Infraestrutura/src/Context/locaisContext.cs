@@ -18,26 +18,22 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context
         {
         }
 
-        public virtual DbSet<Bairro> bairro { get; set; }
-        public virtual DbSet<Geolocalizado> geolocalizado { get; set; }
-        public virtual DbSet<Logradouro> Logralogradouro { get; set; }
+        public virtual DbSet<Bairro> Bairro { get; set; }
+        public virtual DbSet<Geolocalizado> Geolocalizado { get; set; }
+        public virtual DbSet<Logradouro> Logradouro { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-
-                 string connectionStringBuilder = new
+                string connectionStringBuilder = new
                 SqliteConnectionStringBuilder()
                 {
                     DataSource = "locais.sqlite3"
                 }
                 .ToString();
 
-             var connection = new SqliteConnection(connectionStringBuilder);
+                var connection = new SqliteConnection(connectionStringBuilder);
 
-                optionsBuilder.UseSqlite(connection);
-            }
+            optionsBuilder.UseSqlite(connection, b => b.MigrationsAssembly("Apresentacao"));
         }
 
          protected override void OnModelCreating(ModelBuilder modelBuilder)
