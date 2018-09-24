@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Rio.SMF.CCU.Ouvidoria.Dominio.Models;
@@ -17,16 +18,25 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context
         {
         }
 
-        public virtual DbSet<Bairro> Bairro { get; set; }
-        public virtual DbSet<Geolocalizado> Geolocalizado { get; set; }
-        public virtual DbSet<Logradouro> Logradouro { get; set; }
+        public virtual DbSet<Bairro> bairro { get; set; }
+        public virtual DbSet<Geolocalizado> geolocalizado { get; set; }
+        public virtual DbSet<Logradouro> Logralogradouro { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseSqlite(@"Data Source=./bin/Debug/netcoreapp2.1/locais.sqlite3");
+                 string connectionStringBuilder = new
+                SqliteConnectionStringBuilder()
+                {
+                    DataSource = "locais.sqlite3"
+                }
+                .ToString();
+
+             var connection = new SqliteConnection(connectionStringBuilder);
+
+                optionsBuilder.UseSqlite(connection);
             }
         }
 

@@ -14,17 +14,17 @@ namespace src
                 serviceProvider.GetRequiredService<DbContextOptions<locaisContext>>()))
             {
                 // Look for any movies.
-                if (context.Bairro.Any())
+                if (context.bairro.Any())
                 {
                     return;   // DB has been seeded
                 }
 
-                if (context.Geolocalizado.Any())
+                if (context.geolocalizado.Any())
                 {
                     return;   // DB has been seeded
                 }
 
-                 if (context.Logradouro.Any())
+                 if (context.Logralogradouro.Any())
                 {
                     return;   // DB has been seeded
                 }
