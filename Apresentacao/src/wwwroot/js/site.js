@@ -80,19 +80,20 @@ $('#bairro').change(function () {
 
     paramBairro = document.getElementById("bairro").value;
     
-
     $.get('/Formulario/Index/Json', { param: paramBairro }).done(function (logradouro) {
        
+        console.log(logradouro);
+
         var options = '<option value=""> </options>';
         $.each(logradouro, function (key, val) {
-            options += '<option value="' + val.LogradouroId + '">' + val.nome + '</option>';
+            options += '<option value="' + val.logradouroId + '">' + val.nome + '</option>';
         });
 
         $("#logradouro").html(options);
+        
 
     });
 });
-
 
 
 $('#logradouroLocal').change(function(){
@@ -102,6 +103,7 @@ $('#logradouroLocal').change(function(){
 $('#bairroQueryLocal').change(function () {
 
     $('#excel').hide();
+    $('#queryLocal').empty();
 
     paramBairro = document.getElementById("bairroQueryLocal").value;
 
@@ -120,7 +122,7 @@ $('#bairroQueryLocal').change(function () {
 
 $('#pesquisarData').click(function () {
 
-    
+    $("#queryData").empty();
     var dataInicio = document.getElementById('dataInicio').value;
     var dataFim = document.getElementById('dataFim').value;
 
@@ -228,6 +230,7 @@ $('#pesquisarLocal').click(function () {
 
 $('#pesquisarNumero').click(function () {
 
+    $("#queryNumeroEncontrado").empty();
     var numero = document.getElementById('queryNumero').value;
 
 

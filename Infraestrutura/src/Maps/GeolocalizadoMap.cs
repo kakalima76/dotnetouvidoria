@@ -17,7 +17,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Maps
                     .HasName("indiceGeolocalizado");
 
             builder.Property(e => e.GeolocalizadoId)
-                    .HasColumnName("cep")
+                    .HasColumnName("GeolocalizadoId")
                     .HasColumnType("varchar ( 10 )")
                     .ValueGeneratedNever();
 

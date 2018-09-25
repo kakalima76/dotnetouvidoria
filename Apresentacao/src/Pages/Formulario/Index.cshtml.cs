@@ -100,12 +100,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
              
         public JsonResult OnGetJson(String param){
 
-            System.Diagnostics.Debug.WriteLine("Debug message");
-            System.Diagnostics.Debug.WriteLine("Debug message");
-            System.Diagnostics.Debug.WriteLine("Debug message");
-            System.Diagnostics.Debug.WriteLine("Debug message");
-            System.Diagnostics.Debug.WriteLine("Debug message");
-
+         
             return new JsonResult(_dbLogradouro.Buscar(x => x.IdBairro == param).OrderBy(x => x.Nome));
             
         }
