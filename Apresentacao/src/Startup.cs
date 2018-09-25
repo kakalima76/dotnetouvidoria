@@ -60,20 +60,11 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
                 options.UseSqlServer(
                     Configuration.GetConnectionString("UserConnection")));
 
-            string connectionStringBuilder = new
-                SqliteConnectionStringBuilder()
-                {
-                    DataSource = "locais.sqlite3"
-                }
-                .ToString();
-
-             var connection = new SqliteConnection(connectionStringBuilder);
-                      
-            // services.AddDbContext<locaisContext>(options =>
-            //     options.UseSqlite($"Data Source={_appHost.ContentRootPath}/locais.sqlite3"));
-
             services.AddDbContext<locaisContext>(options =>
-                options.UseSqlite(connection));
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("SecondConnection")));
+
+            
 
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -92,7 +83,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
             
             });
 
-          
+            
 
             services.AddMvc()
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

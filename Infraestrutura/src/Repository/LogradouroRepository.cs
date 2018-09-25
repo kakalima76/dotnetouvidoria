@@ -13,10 +13,6 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Repository
         {
 
         }
-
-        public Logradouro ObterPorIdLong(long id)
-        {
-            return _dbContext.Set<Logradouro>().Find(id);
-        }
+        
     }
 }

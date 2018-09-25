@@ -81,7 +81,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
                 denuncia.lat =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).Latitude;
                 denuncia.lng =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).Longitude;
                 denuncia.cep =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).GeolocalizadoId;
-                denuncia.logradouro = _dbLogradouro.ObterPorIdLong(logradouroId).Nome;
+                denuncia.logradouro = _dbLogradouro.ObterPorId(logradouroId).Nome;
                 denuncia.bairro = _dbBairro.ObterPorIdString(denuncia.bairro).Nome; 
                 denuncia.categoria = elemen[0].Name.ToString();
                 denuncia.agente = User.Identity.Name;
@@ -100,7 +100,13 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
              
         public JsonResult OnGetJson(String param){
 
-            return new JsonResult(_dbLogradouro.Buscar(x => x.IdBairro.Equals(param)).OrderBy(x => x.Nome));
+            System.Diagnostics.Debug.WriteLine("Debug message");
+            System.Diagnostics.Debug.WriteLine("Debug message");
+            System.Diagnostics.Debug.WriteLine("Debug message");
+            System.Diagnostics.Debug.WriteLine("Debug message");
+            System.Diagnostics.Debug.WriteLine("Debug message");
+
+            return new JsonResult(_dbLogradouro.Buscar(x => x.IdBairro == param).OrderBy(x => x.Nome));
             
         }
 

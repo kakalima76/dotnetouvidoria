@@ -64,10 +64,10 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Pesquisas.Local
             
         }
 
-        public JsonResult OnGetJsonLocais(String bairro, long logradouro){
+        public JsonResult OnGetJsonLocais(String bairro, int logradouro){
 
             var strbairro = _dbBairro.ObterPorIdString(bairro).Nome;
-            var strLogradouro = _dbLogradouro.ObterPorIdLong(logradouro).Nome;
+            var strLogradouro = _dbLogradouro.ObterPorId(logradouro).Nome;
 
             return new JsonResult(_dbDenuncia.Buscar(x => x.bairro.Equals(strbairro) && x.logradouro.Equals(strLogradouro)));
         
@@ -79,11 +79,11 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Pesquisas.Local
             return RedirectToPage("/Index");
         }
 
-         public async Task<IActionResult> OnPostExport(string bairro, long logradouro)
+         public async Task<IActionResult> OnPostExport(string bairro, int logradouro)
         {
 
             var strbairro = _dbBairro.ObterPorIdString(bairro).Nome;
-            var strLogradouro = _dbLogradouro.ObterPorIdLong(logradouro).Nome;
+            var strLogradouro = _dbLogradouro.ObterPorId(logradouro).Nome;
 
             if(!String.IsNullOrEmpty(strbairro) && !String.IsNullOrEmpty(strLogradouro)){
            

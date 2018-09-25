@@ -79,12 +79,13 @@ $('#btnFim').click(function () {
 $('#bairro').change(function () {
 
     paramBairro = document.getElementById("bairro").value;
+    
 
     $.get('/Formulario/Index/Json', { param: paramBairro }).done(function (logradouro) {
-
+       
         var options = '<option value=""> </options>';
         $.each(logradouro, function (key, val) {
-            options += '<option value="' + val.logradouroId + '">' + val.nome + '</option>';
+            options += '<option value="' + val.LogradouroId + '">' + val.nome + '</option>';
         });
 
         $("#logradouro").html(options);

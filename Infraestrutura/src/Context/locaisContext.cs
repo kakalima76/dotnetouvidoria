@@ -9,10 +9,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context
 {
     public partial class locaisContext : DbContext
     {
-        public locaisContext()
-        {
-        }
-
+       
         public locaisContext(DbContextOptions<locaisContext> options)
             : base(options)
         {
@@ -24,16 +21,16 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-                string connectionStringBuilder = new
-                SqliteConnectionStringBuilder()
-                {
-                    DataSource = "locais.sqlite3"
-                }
-                .ToString();
+                // string connectionStringBuilder = new
+                // SqliteConnectionStringBuilder()
+                // {
+                //     DataSource = "locais.sqlite3"
+                // }
+                // .ToString();
 
-                var connection = new SqliteConnection(connectionStringBuilder);
+                // var connection = new SqliteConnection(connectionStringBuilder);
 
-            optionsBuilder.UseSqlite(connection, b => b.MigrationsAssembly("Apresentacao"));
+            optionsBuilder.UseSqlServer("Data Source=tcp:dotnet-ouvidoria.database.windows.net,1433;Initial Catalog=SGO;User ID=kakalima76;Password=Ni244265;", b => b.MigrationsAssembly("Apresentacao"));
         }
 
          protected override void OnModelCreating(ModelBuilder modelBuilder)

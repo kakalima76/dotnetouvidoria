@@ -2,7 +2,7 @@
 
 namespace Apresentacao.Migrations.locais
 {
-    public partial class InicialMigrationLocais : Migration
+    public partial class InicialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -35,13 +35,13 @@ namespace Apresentacao.Migrations.locais
                 name: "logradouro",
                 columns: table => new
                 {
-                    cep = table.Column<long>(nullable: false),
+                    LogradouroId = table.Column<long>(nullable: false),
                     idBairro = table.Column<string>(type: "varchar ( 75 )", nullable: false),
                     nome = table.Column<string>(type: "varchar ( 100 )", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_logradouro", x => x.cep);
+                    table.PrimaryKey("PK_logradouro", x => x.LogradouroId);
                 });
 
             migrationBuilder.CreateIndex(
@@ -58,7 +58,7 @@ namespace Apresentacao.Migrations.locais
             migrationBuilder.CreateIndex(
                 name: "indiceLogradouro",
                 table: "logradouro",
-                column: "cep");
+                column: "LogradouroId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
