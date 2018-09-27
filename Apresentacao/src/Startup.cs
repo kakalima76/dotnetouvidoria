@@ -62,7 +62,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao
 
             services.AddDbContext<locaisContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("SecondConnection")));
+                    Configuration.GetConnectionString("DefaultConnection")));
 
             
 

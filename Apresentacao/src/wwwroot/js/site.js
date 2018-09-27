@@ -85,8 +85,7 @@ $('#bairro').change(function () {
     
     $.get('/Formulario/Index/Json', { param: paramBairro }).done(function (logradouro) {
        
-        console.log(logradouro);
-
+        
         var options = '<option value=""> </options>';
         $.each(logradouro, function (key, val) {
             options += '<option value="' + val.logradouroId + '">' + val.nome + '</option>';
