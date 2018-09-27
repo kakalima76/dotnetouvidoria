@@ -28,13 +28,32 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
         [Display(Name = "Categoria")]
         public string categoria { get; set; }
 
-       
-        [Display(Name = "Data")]
-        [Required(ErrorMessage = "Defina uma data.")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-        [DataType(DataType.Date, ErrorMessage="Data em formato inválido")]
-        public DateTime data { get; set; }
-        
+        private DateTime data1;
+
+        public DateTime Getdata()
+        {
+            return data1;
+        }
+
+        public void Setdata(DateTime value)
+        {
+            DateTime ConverteStringData(string data)
+            {
+                int ano = Convert.ToInt16(data.Substring(6,4));
+                int mes = Convert.ToInt16(data.Substring(3,2));
+                int dia = Convert.ToInt16(data.Substring(0,2));
+                int hor = Convert.ToInt16(data.Substring(11,2));
+                int min = Convert.ToInt16(data.Substring(14,2));
+                int seg = 0;
+
+                DateTime dt = new DateTime(ano, mes, dia, hor, min, seg);
+
+                return  dt;
+            }
+            
+            data1 = ConverteStringData(value.ToString());
+        }
+
         public string agente { get; set; }
 
         [Display(Name = "Número do processo")]

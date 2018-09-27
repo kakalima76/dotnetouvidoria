@@ -69,12 +69,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
         public IActionResult OnPost(Denuncia denuncia)
         {
 
-           if(!ModelState.IsValid){
-               DateTime dt = _dbDenuncia.ConverteStringData(Denuncia.data.ToString());
-               denuncia.data = dt;
-           } 
-
-                    
+                              
            if(ModelState.IsValid){
 
                 var logradouroId = Convert.ToInt32(denuncia.logradouro);
