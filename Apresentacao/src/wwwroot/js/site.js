@@ -12,6 +12,9 @@
     });
 });
 
+//esconde o span de loading em todas as paginas de pesquisa
+$('#loading').hide();
+
 
 //botão para limpar o campo de busca de chamado por número
 $('#limparCampo').click(function(){
@@ -122,6 +125,7 @@ $('#bairroQueryLocal').change(function () {
 
 $('#pesquisarData').click(function () {
 
+    $('#loading').show();
     $("#queryData").empty();
     var dataInicio = document.getElementById('dataInicio').value;
     var dataFim = document.getElementById('dataFim').value;
@@ -162,7 +166,7 @@ $('#pesquisarData').click(function () {
                     '</div>';
             });
 
-
+            $('#loading').hide();
             $("#queryData").html(options);
             $('#excel').show();
 
@@ -174,6 +178,7 @@ $('#pesquisarData').click(function () {
 
 $('#pesquisarLocal').click(function () {
 
+    $('#loading').show();
     var bairro = document.getElementById('bairroQueryLocal').value;
     var logradouro = document.getElementById('logradouroLocal').value;
 
@@ -216,6 +221,7 @@ $('#pesquisarLocal').click(function () {
                     '</div>';
             });
 
+            $('#loading').hide();
             $("#queryLocal").html(options);
             $('#excel').show();
 
@@ -230,6 +236,7 @@ $('#pesquisarLocal').click(function () {
 
 $('#pesquisarNumero').click(function () {
 
+    $('#loading').show();
     $("#queryNumeroEncontrado").empty();
     var numero = document.getElementById('queryNumero').value;
 
@@ -272,6 +279,7 @@ $('#pesquisarNumero').click(function () {
                     '</div>';
             });
 
+            $('#loading').hide();
             $("#queryNumeroEncontrado").html(options);
 
         });
