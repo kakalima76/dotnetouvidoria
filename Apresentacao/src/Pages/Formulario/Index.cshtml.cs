@@ -76,7 +76,9 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
                 Categoria = new Categoria();
                 var lista = Categoria.Listar().ToList();
                 var elemen  = lista.Where(x => x.Value == "0").ToArray();
+                var dt = denuncia.data.ToString();
                 
+                denuncia.data = _dbDenuncia.ConverteStringData(dt);
                 denuncia.lat =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).Latitude;
                 denuncia.lng =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).Longitude;
                 denuncia.cep =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).GeolocalizadoId;
