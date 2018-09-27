@@ -46,8 +46,8 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Pesquisas.Data
                       
         public JsonResult OnGetJson(String dataInicio, String dataFim){
 
-            DateTime dtInicio = Convert.ToDateTime(dataInicio);
-            DateTime dtFim = Convert.ToDateTime(dataFim);
+            DateTime dtInicio = Convert.ToDateTime(dataInicio + ":00");
+            DateTime dtFim = Convert.ToDateTime(dataFim + ":00");
 
             return new JsonResult(_dbDenuncia.ObterTodos().Where(x => x.data >= dtInicio && x.data <= dtFim));
             
