@@ -31,6 +31,8 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
        
         [Display(Name = "Data")]
         [Required(ErrorMessage = "Defina uma data.")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.Date, ErrorMessage="Data em formato inválido")]
         public DateTime data { get; set; }
         
         public string agente { get; set; }

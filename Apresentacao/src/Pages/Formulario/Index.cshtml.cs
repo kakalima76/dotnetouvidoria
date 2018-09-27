@@ -69,10 +69,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
         public IActionResult OnPost(Denuncia denuncia)
         {
 
-            var dt = denuncia.data.ToString();    
-            denuncia.data = _dbDenuncia.ConverteStringData(dt);
-
-           
+                    
            if(ModelState.IsValid){
 
                 var logradouroId = Convert.ToInt32(denuncia.logradouro);
@@ -95,9 +92,13 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
 
             return  RedirectToPage("Index");
 
-           }                         
+           } 
+
+            ListaBairro = _dbBairro.ObterTodos().OrderBy(x => x.Nome);
+            Categoria = new Categoria();
+            ListaCategoria = Categoria.Listar().ToList();                        
                        
-            return  RedirectToAction("Index");
+            return  Page();
         }
 
              
