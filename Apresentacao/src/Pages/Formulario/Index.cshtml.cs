@@ -93,7 +93,9 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
 
             return  RedirectToPage("Index");
 
-           }                         
+           }else{
+               return RedirectToPage("Error");
+           }                
                        
             return  RedirectToAction("Index");
         }
