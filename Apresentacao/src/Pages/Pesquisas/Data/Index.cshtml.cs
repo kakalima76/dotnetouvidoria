@@ -49,7 +49,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Pesquisas.Data
             DateTime dtInicio = _dbDenuncia.ConverteStringData(dataInicio);
             DateTime dtFim = _dbDenuncia.ConverteStringData(dataFim);
 
-            return new JsonResult(_dbDenuncia.ObterTodos().Where(x => x.Getdata() >= dtInicio && x.Getdata() <= dtFim));
+            return new JsonResult(_dbDenuncia.ObterTodos().Where(x => x.data >= dtInicio && x.data <= dtFim));
             
         }
 
@@ -68,7 +68,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Pesquisas.Data
                 DateTime dtInicio = Convert.ToDateTime(DataInicio);
                 DateTime dtFim = Convert.ToDateTime(DataFim);
 
-                ListaDenuncia = _dbDenuncia.Buscar(x => x.Getdata() >= dtInicio && x.Getdata() <= dtFim);
+                ListaDenuncia = _dbDenuncia.Buscar(x => x.data >= dtInicio && x.data <= dtFim);
 
                 string sWebRootFolder = _hostingEnvironment.WebRootPath;
                 string sFileName = @"consultaPorData.xlsx";
@@ -106,7 +106,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Pesquisas.Data
                         row.CreateCell(0).SetCellValue(list.idDenuncia);
                         row.CreateCell(1).SetCellValue(list.numero);
                         row.CreateCell(2).SetCellValue(list.categoria);
-                        row.CreateCell(3).SetCellValue(list.Getdata());
+                        row.CreateCell(3).SetCellValue(list.data);
                         row.CreateCell(4).SetCellValue(list.agente);
                         row.CreateCell(5).SetCellValue(list.processo);
                         row.CreateCell(6).SetCellValue(list.logradouro);

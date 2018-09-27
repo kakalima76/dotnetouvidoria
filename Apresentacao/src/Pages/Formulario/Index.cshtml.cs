@@ -66,7 +66,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
             
         }
 
-        public IActionResult OnPost(Denuncia denuncia)
+        public IActionResult OnPost(Denuncia denuncia, string Data)
         {
 
                               
@@ -77,7 +77,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
                 var lista = Categoria.Listar().ToList();
                 var elemen  = lista.Where(x => x.Value == "0").ToArray();
                 
-
+                denuncia.data = _dbDenuncia.ConverteStringData(Data);
                 denuncia.lat =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).Latitude;
                 denuncia.lng =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).Longitude;
                 denuncia.cep =  _dbGeolocalizado.ObterPorIdString(denuncia.logradouro).GeolocalizadoId;
