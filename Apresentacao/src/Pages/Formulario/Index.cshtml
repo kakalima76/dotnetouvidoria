@@ -16,11 +16,13 @@
 
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker'>
-                    <input type='text' class="form-control" id="data" name="Data"/>
+                    <input type='text' class="form-control" id="data" name="Data" data-val="true" data-val-required="Informe uma data." />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>                  
                 </div>
+                 <span class="text-danger field-validation-valid" data-valmsg-for="Data" data-valmsg-replace="true"></span>
+
             </div>
            
             <div class="form-group">
@@ -28,7 +30,7 @@
             </div>
 
             <div class="form-group">
-                <input type="text" asp-for="Denuncia.numero" class="form-control" maxlength="15">
+                <input type="text" asp-for="Denuncia.numero" class="form-control" maxlength="15" id="numeroDenuncia">
                 <span asp-validation-for="Denuncia.numero" class="text-danger"></span>
             </div>
 

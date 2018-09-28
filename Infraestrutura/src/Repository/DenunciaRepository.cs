@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using Rio.SMF.CCU.Ouvidoria.Infraestrutura.Context;
 using Rio.SMF.CCU.Ouvidoria.Infraestrutura.Interfaces;
 using Rio.SMF.CCU.Ouvidoria.Dominio.Models;
+using System.Linq;
 
 namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Repository
 {
@@ -27,5 +28,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Infraestrutura.Repository
 
             return  dt;
         }
+
+        
     }
 }

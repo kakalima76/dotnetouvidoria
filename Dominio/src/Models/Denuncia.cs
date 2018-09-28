@@ -1,5 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
+
+
 
 
 namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
@@ -15,7 +18,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
        
         public int idDenuncia { get; set; }
 
-        [Required(ErrorMessage = "Informe um número para a denúcia.")]
+        [Required(ErrorMessage = "Informe um número para a denúncia.")]
         [Display(Name = "Número")]
         public string numero { get; set; }
 
@@ -27,7 +30,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
         [Display(Name = "Categoria")]
         public string categoria { get; set; }
 
-        [DataType(DataType.Date, ErrorMessage="Formato de data + {0} + inválido")]
+        
         public DateTime data {get; set; }
 
         public string agente { get; set; }
@@ -37,6 +40,7 @@ namespace Rio.SMF.CCU.Ouvidoria.Dominio.Models
 
         [Display(Name = "Logradouro")]
         [Required(ErrorMessage = "Selecione um logradouro.")]
+     
         public string logradouro { get; set; }
 
         [Required(ErrorMessage = "Selecione um bairro.")]

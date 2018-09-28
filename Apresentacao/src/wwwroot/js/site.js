@@ -102,6 +102,23 @@ $('#logradouroLocal').change(function(){
     $('#excel').hide();
 });
 
+
+//procura no db se o número da denúncia já existe
+$('#numeroDenuncia').focusout(function () {
+   
+    paramNumero = document.getElementById("numeroDenuncia").value;
+
+    $.get('/Formulario/Index/Numero', { param: paramNumero }).done(function (denuncia) {
+    
+      
+        if(denuncia){
+            alert("Denuncia já cadastrada no sistema!");
+            $('#numeroDenuncia').val('');
+        }     
+
+    });
+});
+
 $('#bairroQueryLocal').change(function () {
 
     $('#excel').hide();

@@ -109,6 +109,13 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Formulario
             
         }
 
+        public JsonResult OnGetNumero(String param){
+
+                   
+            return new JsonResult(_dbDenuncia.Buscar(x => x.numero.Equals(param)).FirstOrDefault());
+            
+        }
+
          public async Task<IActionResult> OnPostLogout(){
             await HttpContext.SignOutAsync();
 
