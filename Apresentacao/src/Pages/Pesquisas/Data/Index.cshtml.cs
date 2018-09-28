@@ -65,8 +65,8 @@ namespace Rio.SMF.CCU.Ouvidoria.Apresentacao.Pages.Pesquisas.Data
             if(!String.IsNullOrEmpty(DataInicio) && !String.IsNullOrEmpty(DataFim)){
            
 
-                DateTime dtInicio = Convert.ToDateTime(DataInicio);
-                DateTime dtFim = Convert.ToDateTime(DataFim);
+                DateTime dtInicio = _dbDenuncia.ConverteStringData(DataInicio);
+                DateTime dtFim = _dbDenuncia.ConverteStringData(DataFim);
 
                 ListaDenuncia = _dbDenuncia.Buscar(x => x.data >= dtInicio && x.data <= dtFim);
 
